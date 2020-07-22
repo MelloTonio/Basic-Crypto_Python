@@ -1,0 +1,31 @@
+import string
+
+alphabet = string.ascii_lowercase
+new_word = ""
+indexes = []
+
+def old_letters(listr):
+    for index in range(0,len(listr)):
+        if listr[index] - 13 >= 0:
+            listr[index] = listr[index] - 13
+        else:
+            helper = listr[index] - 13
+            real_index = 26 + helper
+            listr[index] = real_index
+    print(indexes)
+
+def decrypted_word(listr):
+    global new_word
+    for letters in listr:
+        letter = alphabet[letters]
+        new_word += letter
+    print(new_word)
+
+
+def decryptRot13(encryptedMessage):
+    for letter in encryptedMessage:
+        if letter != ' ':
+            letter_index = alphabet.index(letter)
+            indexes.append(letter_index)
+    old_letters(indexes)
+    decrypted_word(indexes)
